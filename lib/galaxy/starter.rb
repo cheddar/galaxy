@@ -14,7 +14,7 @@ module Galaxy
                 return "unknown" if path.nil?
                 launcher_path = xnctl_path(path)
 
-                command = "#{launcher_path} --slot-info #{@db.file_for('slot_info')} #{action.to_s.chomp('!')}"
+                command = "#{launcher_path} #{action.to_s.chomp('!')} --slot-info #{@db.file_for('slot_info')}"
                 @log.debug "Running #{command}"
                 begin
                     output = Galaxy::HostUtils.system command
